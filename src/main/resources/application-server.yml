@@ -69,6 +69,7 @@ cloud:
       auto: false
 server:
   port: ${PORT:8080}
+  address: "::"   # Railway 내부 프록시가 IPv6로 접근하므로 IPv6 와일드카드로 바인딩 (IPv4도 함께 수용)
   servlet:
     encoding:
       force-response: true
