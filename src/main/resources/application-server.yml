@@ -12,10 +12,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create  # (1) 스키마 자동 생성
-    show-sql: true      # (2) SQL 쿼리 출력
+    show-sql: false     # (2) SQL 쿼리 출력 (로그 폭주 방지로 off)
     properties:
       hibernate:
-        format_sql: true  # (3) SQL pretty print
+        format_sql: false  # (3) SQL pretty print off
     defer-datasource-initialization: true  # data.sql 실행 시점 조정
   sql:
     init:
@@ -72,6 +72,11 @@ server:
   servlet:
     encoding:
       force-response: true
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql: WARN
 file:
   upload-dir: /fileImage
 payment:
